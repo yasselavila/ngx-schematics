@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "strictNullChecks": true,
+    "preserveConstEnums": true,
+    "noEmitHelpers": false,
+    "removeComments": false,
+    "declaration": true,
+    "sourceMap": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  },
+  "filesGlob": [
+    "src/**/*.ts",
+    "!**/*.spec.ts",
+    "!node_modules/**/*"
+  ],
+  "exclude": [
+    "src/*.spec.ts",
+    "node_modules",
+    "coverage",
+    "dist"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useTranspileModule": true
+  }
+}
