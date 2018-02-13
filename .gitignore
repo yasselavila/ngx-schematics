@@ -69,3 +69,6 @@ build/
 /nm.7z
 /node_modules.zip
 /node_modules.7z
+
+# .angular-cli.json
+.angular-cli.json
