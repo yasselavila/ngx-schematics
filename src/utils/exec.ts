@@ -30,12 +30,14 @@ export function execCli(
       let isError: boolean = false;
 
       const cliOptions: string[] = [
-        'g', generator,
+        'g',
+        generator,
         ...options,
         `--appPath=${appData.path}/..`,
         `--appSrcPath=${appData.path}`,
         `--appMainFile=${appData.mainFile}`,
         `--appSelectorPrefix=${appData.prefix}`,
+        `--appIsLib=${appData.isLib}`,
         `--appId=${appData.id}`,
         `--app=${appData.id}`,
         '--collection=@yag/ngx-schematics'
