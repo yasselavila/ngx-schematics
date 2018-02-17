@@ -8,6 +8,10 @@
       "type": "string",
       "default": ""
     },
+    "appIsLib": {
+      "type": "boolean",
+      "default": false
+    },
     "appPath": {
       "type": "string",
       "default": ""
@@ -28,6 +32,7 @@
       "type": "boolean",
       "default": false
     },
+
     "pagesPath": {
       "type": "string",
       "default": "pages"
