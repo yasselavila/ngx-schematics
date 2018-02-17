@@ -9,12 +9,11 @@
 import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
 import { Source, apply, move, url } from '@angular-devkit/schematics';
 
-import { template, chain } from '../common/template';
-import { completeOptions } from '../common/options';
+import { template, chain, fixOptions } from '../common';
 import { PageSchema as PageOptions } from './page.schema';
 
 export default function(options: PageOptions): Rule {
-  completeOptions(options);
+  fixOptions(options);
 
   return (host: Tree, context: SchematicContext) => {
     const templatesSrc: Source = apply(

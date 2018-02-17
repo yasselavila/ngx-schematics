@@ -23,6 +23,6 @@ export function addDocBlock(options: any): any {
   return options;
 }
 
-export function completeOptions(options: any): any {
+export function fixOptions(options: any): any {
   addDocBlock(options);
 }

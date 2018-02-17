@@ -6,7 +6,7 @@
  * @link      https://github.com/yasselavila/ngx-schematics
  */
 
-import { BaseSchema } from '../base.schema';
+import { BaseSchema } from '../common';
 
 export interface PageSchema extends BaseSchema {
   /**
