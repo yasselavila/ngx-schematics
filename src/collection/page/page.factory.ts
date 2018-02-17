@@ -10,14 +10,14 @@ import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
 import { Source, apply, move, url } from '@angular-devkit/schematics';
 
 import { template, chain } from '../common/template';
-import { addDocBlock } from '../common/docblock';
+import { completeOptions } from '../common/options';
 import { PageSchema as PageOptions } from './page.schema';
 
 export default function(options: PageOptions): Rule {
-  addDocBlock(options);
+  completeOptions(options);
 
   return (host: Tree, context: SchematicContext) => {
-    const templateSrc: Source = apply(
+    const templatesSrc: Source = apply(
       url('./files'),
       [
         template(options),
@@ -25,6 +25,6 @@ export default function(options: PageOptions): Rule {
       ]
     );
 
-    return chain(templateSrc, host, context);
+    return chain(templatesSrc, host, context);
   };
 }

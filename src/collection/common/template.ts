@@ -6,7 +6,6 @@
  * @link      https://github.com/yasselavila/ngx-schematics
  */
 
-import { strings } from '@angular-devkit/core';
 import {
   template as schematicsTemplate,
   chain as schematicsChain,
@@ -18,21 +17,21 @@ import {
   mergeWith
 } from '@angular-devkit/schematics';
 
-import * as strTools from './strings';
+import strings from './strings';
 
 export function template(options: any): Rule {
   return schematicsTemplate({
-    ...strTools,
     ...strings,
     ...options,
+    /* IMPORTANT! Do not remove it */
     tmpl: ''
   });
 }
 
-export function chain(templateSrc: Source, host: Tree, context: SchematicContext): Rule|any {
+export function chain(templatesSrc: Source, host: Tree, context: SchematicContext): Rule|any {
   return schematicsChain([
     branchAndMerge(schematicsChain([
-      mergeWith(templateSrc),
+      mergeWith(templatesSrc),
     ])),
   ])(host, context);
 }

@@ -6,21 +6,28 @@
  * @link      https://github.com/yasselavila/ngx-schematics
  */
 
-import { strings } from '@angular-devkit/core';
+import { strings as stringUtils } from '@angular-devkit/core';
 
 const dashSanitizer: RegExp = /(\-{2,})/gi;
 
 export function toDashes(str: string): string {
-  return strings.dasherize(str).replace(dashSanitizer, '-');
+  return stringUtils.dasherize(str).replace(dashSanitizer, '-');
 }
 
 export function constantStyle(str: string): string {
-  return strings.underscore(toDashes(str)).toUpperCase();
+  return stringUtils.underscore(toDashes(str)).toUpperCase();
 }
 
 export function titleStyle(str: string): string {
   return toDashes(str)
     .split('-')
-    .map((val: string) => strings.capitalize(val))
+    .map((val: string) => stringUtils.capitalize(val))
     .join(' ');
 }
+
+export default {
+  ...stringUtils,
+  toDashes,
+  constantStyle,
+  titleStyle
+};
