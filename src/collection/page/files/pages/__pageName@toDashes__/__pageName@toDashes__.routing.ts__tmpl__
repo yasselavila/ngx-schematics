@@ -1,14 +1,13 @@
 <%= docBlock %>import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomePageComponent } from './home.component';
+import { <%= classify(pageName) %>PageComponent } from './<%= toDashes(pageName) %>.component';
 
-export const HOME_PAGE_ROUTES: Routes = [
+export const <%= constantStyle(pageName) %>_PAGE_ROUTES: Routes = [
   {
-    path: '',
-    component: HomePageComponent,
-    pathMatch: 'full'
+    path: '<%= toDashes(pageName) %>',
+    component: <%= classify(pageName) %>PageComponent
   }
 ];
 
-export const HomePageRoutingModule: ModuleWithProviders = RouterModule.forChild(HOME_PAGE_ROUTES);
+export const <%= classify(pageName) %>PageRoutingModule: ModuleWithProviders = RouterModule.forChild(<%= constantStyle(pageName) %>_PAGE_ROUTES);

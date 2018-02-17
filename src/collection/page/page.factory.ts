@@ -17,7 +17,6 @@ export default function(options: PageOptions): Rule {
   addDocBlock(options);
 
   return (host: Tree, context: SchematicContext) => {
-
     const templateSrc: Source = apply(
       url('./files'),
       [

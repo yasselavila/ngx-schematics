@@ -7,14 +7,18 @@
  */
 
 import { existsSync, readFileSync } from 'fs';
-console.log('asdsad d');
-export function addDocBlock(options: any): any {
-  console.log('asdsad');
 
-  console.log(options);
-  if (options.appMainFile) {
-    console.log(options.appMainFile);
+export function addDocBlock(options: any): any {
+  if (options.appMainFile && existsSync(options.appMainFile)) {
+    const mainFileContent = readFileSync(options.appMainFile).toString();
+
+    if ('/**' === mainFileContent.substring(0, 3)) {
+      /* tslint:disable-next-line */
+      options.docBlock = mainFileContent.substring(0, (mainFileContent.indexOf('*/') + 2)) + "\n\n";
+    }
   }
+
+  options.docBlock = options.docBlock || '';
 
   return options;
 }

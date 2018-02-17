@@ -4,6 +4,10 @@
   "title": "Page Options Schema",
   "type": "object",
   "properties": {
+    "appId": {
+      "type": "string",
+      "default": ""
+    },
     "appPath": {
       "type": "string",
       "default": ""

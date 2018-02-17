@@ -2,11 +2,11 @@
 
 @Component({
   moduleId: module.id,
-  selector: 'app-home-page',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: '<%= appSelectorPrefix ? (appSelectorPrefix + '-') : '' %><%= toDashes(pageName) %>',
+  templateUrl: './<%= toDashes(pageName) %>.component.html',
+  styleUrls: ['./<%= toDashes(pageName) %>.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class <%= classify(pageName) %>PageComponent implements OnInit {
   public constructor() {
   }
 

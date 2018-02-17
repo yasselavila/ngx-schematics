@@ -1,4 +1,4 @@
-<%= docBlock %>export { HomePageModule } from './home.module';
-export { HOME_PAGE_ROUTES, HomePageRoutingModule } from './home.routing';
+<%= docBlock %>export { <%= classify(pageName) %>PageModule } from './<%= toDashes(pageName) %>.module';
+export { <%= constantStyle(pageName) %>_PAGE_ROUTES, <%= classify(pageName) %>PageRoutingModule } from './<%= toDashes(pageName) %>.routing';
 
-export { HomePageComponent } from './home.component';
+export { <%= classify(pageName) %>PageComponent } from './<%= toDashes(pageName) %>.component';

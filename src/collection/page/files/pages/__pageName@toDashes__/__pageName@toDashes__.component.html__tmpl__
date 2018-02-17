@@ -1,2 +1,2 @@
-<h2><%= pageTitle || classify(pageName) %></h2>
+<h2><%= pageTitle ? capitalize(pageTitle) : titleStyle(pageName) %></h2>
 <p>...</p>

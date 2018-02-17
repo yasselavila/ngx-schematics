@@ -36,6 +36,7 @@ export function execCli(
         `--appSrcPath=${appData.path}`,
         `--appMainFile=${appData.mainFile}`,
         `--appSelectorPrefix=${appData.prefix}`,
+        `--appId=${appData.id}`,
         `--app=${appData.id}`,
         '--collection=@yag/ngx-schematics'
       ];

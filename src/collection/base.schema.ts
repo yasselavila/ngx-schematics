@@ -31,4 +31,9 @@ export interface BaseSchema {
    * Skip import?
    */
   skipModuleImport: boolean;
+
+  /**
+   * DocBlock
+   */
+  docBlock?: string;
 }

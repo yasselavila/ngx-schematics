@@ -1,37 +1,34 @@
 <%= docBlock %>import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { SharedModule } from '@bist-web/shared';
+import { <%= classify(pageName) %>PageComponent } from './<%= toDashes(pageName) %>.component';
 
-import { HomePageComponent } from './home.component';
-
-describe('[Web App] Page: Home', () => {
-  let fixture: ComponentFixture<HomePageComponent>;
-  let cmp: HomePageComponent;
+describe('[<%= capitalize(appId) %> App] Page: <%= titleStyle(pageName) %>', () => {
+  let fixture: ComponentFixture<<%= classify(pageName) %>PageComponent>;
+  let cmp: <%= classify(pageName) %>PageComponent;
   let element: any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
-        SharedModule.withProviders()
+        RouterTestingModule
       ],
       declarations: [
-        HomePageComponent
+        <%= classify(pageName) %>PageComponent
       ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomePageComponent);
+    fixture = TestBed.createComponent(<%= classify(pageName) %>PageComponent);
     cmp = fixture.componentInstance;
     element = fixture.nativeElement;
 
     fixture.detectChanges();
   });
 
-  const expectedTitle: string = 'Welcome!';
+  const expectedTitle: string = '<%= pageTitle ? capitalize(pageTitle) : titleStyle(pageName) %>';
 
   it('should create the component', () => {
     expect(cmp).toBeTruthy();
