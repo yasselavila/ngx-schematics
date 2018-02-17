@@ -8,6 +8,16 @@
 
 export interface BaseSchema {
   /**
+   * App ID
+   */
+  appId: string;
+
+  /**
+   * Is the app a library?
+   */
+  appIsLib?: boolean;
+
+  /**
    * The path of the App
    */
   appPath: string;
