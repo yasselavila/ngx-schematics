@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { <%= classify(pageName) %>PageComponent } from './<%= toDashes(pageName) %>.component';
 
-describe('[<%= capitalize(appId) %> App] Page: <%= titleStyle(pageName) %>', () => {
+describe('[<%= appIsLib ? 'Lib' : 'App' %>: <%= capitalize(appId) %>] Page: <%= titleStyle(pageName) %>', () => {
   let fixture: ComponentFixture<<%= classify(pageName) %>PageComponent>;
   let cmp: <%= classify(pageName) %>PageComponent;
   let element: any;
