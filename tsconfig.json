@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -8,18 +8,21 @@
     "noImplicitReturns": true,
     "noImplicitUseStrict": false,
     "noFallthroughCasesInSwitch": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "noUnusedLocals": false,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "strictNullChecks": true,
     "preserveConstEnums": true,
     "noEmitHelpers": false,
-    "removeComments": false,
-    "declaration": true,
-    "sourceMap": true,
+    "removeComments": true,
+    "declaration": false,
+    "sourceMap": false,
     "rootDir": "src",
     "outDir": "dist",
+    "lib": [
+      "es2015"
+    ],
     "typeRoots": [
       "./node_modules/@types"
     ]

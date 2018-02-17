@@ -1,7 +1,7 @@
 {
   "name": "@yag/ngx-schematics",
   "description": "Custom schematics for Angular apps",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.4",
   "license": "BSD-3-Clause",
   "private": true,
   "engines": {
@@ -21,8 +21,10 @@
     "ngx-schematics",
     "custom"
   ],
-  "main": "index.js",
-  "typings": "index.d.ts",
+  "schematics": "./collection/collection.json",
+  "bin": {
+    "yag-ng": "./bin/generate.js"
+  },
   "scripts": {
     "start": "npm run test:w",
     "cover": "cross-env NODE_ENV=test nyc --reporter=lcov npm run test:r",
@@ -35,23 +37,25 @@
     "tsc": "tsc --target es5",
     "tsc:w": "npm run tsc -- -w",
     "clean": "rimraf dist && mkdir dist",
-    "pkg:data": "cpx {package.json,README.md,LICENSE.txt} dist/",
-    "build": "run-s clean cover pkg:data tsc"
+    "pkg:data": "cpx {package.json,package-lock.json,README.md,LICENSE.txt} dist/",
+    "copy:files": "cpx \"src/**/*.!(ts|d.ts|)\" dist/",
+    "build:disabled": "run-s clean cover pkg:data copy:files tsc",
+    "build:fast": "run-s copy:files tsc",
+    "build": "run-s clean pkg:data copy:files tsc"
   },
   "dependencies": {
-    "@schematics/schematics": "^0.3.1",
-    "@schematics/angular": "^0.3.1",
     "@angular-devkit/core": "^0.3.1",
     "@angular-devkit/schematics": "^0.3.1",
     "@angular-devkit/schematics-cli": "^0.3.1",
-    "select-shell": "^1.0.0",
-    "yargs": "^11.0.0"
+    "@schematics/angular": "^0.3.1",
+    "@schematics/schematics": "^0.3.1",
+    "inquirer2": "^0.1.1",
+    "source-map": "^0.7.1"
   },
   "devDependencies": {
     "@types/node": "~9.4.5",
     "@types/mocha": "^2.2.48",
     "@types/chai": "^4.1.2",
-    "@types/yargs": "^10.0.1",
     "rimraf": "^2.6.2",
     "npm-run-all": "^4.1.2",
     "cross-env": "^5.1.3",

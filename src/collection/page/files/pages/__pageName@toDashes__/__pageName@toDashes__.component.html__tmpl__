@@ -1,0 +1,2 @@
+<h2><%= pageTitle || classify(pageName) %></h2>
+<p>...</p>

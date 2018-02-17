@@ -13,7 +13,7 @@ Copyright (c) 2018, [Yassel Avila Gil](http://yasselavila.com).
 
 ### What is this?
 
-[WIP] Custom [schematics](https://blog.angular.io/schematics-an-introduction-dc1dfbc2a2b2) for [Angular](https://angular.io/) apps.
+**[WIP]** Custom [schematics](https://blog.angular.io/schematics-an-introduction-dc1dfbc2a2b2) for [Angular](https://angular.io/) apps.
 
 ### License
 

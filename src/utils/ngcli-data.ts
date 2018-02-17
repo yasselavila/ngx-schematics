@@ -6,13 +6,10 @@
  * @link      https://github.com/yasselavila/ngx-schematics
  */
 
-import * as fs from 'fs';
-const Separator = require('inquirer2/lib/objects/separator');
-
-import { Choice } from './console';
+import { readFileSync, existsSync } from 'fs';
 
 export function getCliAppsData(): any {
-  const cliConfContent: string = fs.readFileSync('./.angular-cli.json').toString();
+  const cliConfContent: string = readFileSync('./.angular-cli.json').toString();
   const cliConf: any = JSON.parse(cliConfContent);
 
   const appTestExpr: RegExp = /^apps\//;
@@ -28,7 +25,7 @@ export function getCliAppsData(): any {
       const isApp: boolean = appTestExpr.test(curr.root);
       const mainFileRef: string = (curr.main || (isApp ? 'main.ts' : '../index.ts'));
       const mainFile: string = (curr.root + '/' + mainFileRef);
-      const isValid: boolean = fs.existsSync(mainFile);
+      const isValid: boolean = existsSync(mainFile);
 
       ret[isApp ? 'apps' : 'libs'].push({
         id: (curr.name || 'default'),
@@ -39,23 +36,6 @@ export function getCliAppsData(): any {
         mainFile: (isValid ? mainFile : null),
         prefix: (curr.prefix || '')
       });
-    }
-  }
-
-  return ret;
-}
-
-export function getConsoleList(): Choice[] {
-  const apps: any = getCliAppsData();
-  const ret: Choice[] = [];
-
-  for (const type in apps) {
-    const section: string = type[0].toUpperCase() + type.substring(1) + ':';
-    ret.push(new Separator(section));
-
-    for (const app of apps[type]) {
-      const name: string = '  ' + app.id + (app.description ? (' (' + app.description + ')') : '');
-      ret.push({ name, value: app.id });
     }
   }
 

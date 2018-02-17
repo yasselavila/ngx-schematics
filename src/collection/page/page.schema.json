@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchemanticsForPage",
+  "title": "Page Options Schema",
+  "type": "object",
+  "properties": {
+    "appPath": {
+      "type": "string",
+      "default": ""
+    },
+    "appSrcPath": {
+      "type": "string",
+      "default": ""
+    },
+    "appMainFile": {
+      "type": "string",
+      "default": "main.ts"
+    },
+    "appSelectorPrefix": {
+      "type": "string",
+      "default": "app"
+    },
+    "skipModuleImport": {
+      "type": "boolean",
+      "default": false
+    },
+    "pagesPath": {
+      "type": "string",
+      "default": "pages"
+    },
+    "pagesModuleFile": {
+      "type": "string",
+      "default": ""
+    },
+    "noModule": {
+      "type": "boolean",
+      "default": false
+    },
+    "pageName": {
+      "type": "string",
+      "default": "my-page"
+    },
+    "pageTitle": {
+      "type": "string",
+      "default": "My Page"
+    }
+  }
+}
