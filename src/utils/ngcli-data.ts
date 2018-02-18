@@ -6,6 +6,7 @@
  * @link      https://github.com/yasselavila/ngx-schematics
  */
 
+import { exit } from 'process';
 import { readFileSync, existsSync } from 'fs';
 
 let cliDataCache: any;
@@ -32,8 +33,15 @@ export function getCliData(disableCache?: boolean): CliData {
     return cliDataCache;
   }
 
-  const cliConfContent: string = readFileSync('./.angular-cli.json').toString();
-  const cliConf: any = JSON.parse(cliConfContent);
+  let cliConf: any;
+
+  try {
+    const cliConfContent: string = readFileSync('./.angular-cli.json').toString();
+    cliConf = JSON.parse(cliConfContent);
+  } catch (e) {
+    console.error('ERR! Can\'t read data on \'.angular-cli.json\'');
+    exit(1);
+  }
 
   const ret: CliData = {
     isNxWorkspace: (existsSync('./apps') && existsSync('./libs')),
