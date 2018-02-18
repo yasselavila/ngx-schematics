@@ -9,10 +9,9 @@
 import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
 
 import PageFactory from './page.factory';
-import { PageSchema as PageOptions } from './page.schema';
 
 describe('Page Schematic', () => {
-  it('temp', () => {
-    // TODO expect(PageFactory).toBeTruthy();
+  it('should define the factory', () => {
+    // TODO: expect(PageFactory).toBeTruthy();
   });
 });
