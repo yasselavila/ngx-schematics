@@ -8,48 +8,84 @@
 
 import { readFileSync, existsSync } from 'fs';
 
-export function getCliAppsData(): any {
+let cliDataCache: any;
+
+export interface AppData {
+  id: string;
+  isApp: boolean;
+  isLib: boolean;
+  isValid: boolean;
+  path: string|null;
+  mainFile: string|null;
+  prefix: string;
+}
+
+export interface CliData {
+  isNxWorkspace: boolean;
+  multipleApps: boolean;
+  app?: AppData;
+  apps?: AppData[];
+}
+
+export function getCliData(disableCache?: boolean): CliData {
+  if (!disableCache && cliDataCache) {
+    return cliDataCache;
+  }
+
   const cliConfContent: string = readFileSync('./.angular-cli.json').toString();
   const cliConf: any = JSON.parse(cliConfContent);
 
-  const appTestExpr: RegExp = /^apps\//;
-
-  const ret: any = {
-    apps: [],
-    libs: []
+  const ret: CliData = {
+    isNxWorkspace: (existsSync('./apps') && existsSync('./libs')),
+    multipleApps: (cliConf.apps && (cliConf.apps.length > 1))
   };
 
-  if (!!cliConf.apps) {
+  const libTestExpr: RegExp = /^libs\//;
+
+  if (cliConf.apps) {
     for (let i: number = 0, l: number = cliConf.apps.length; i < l; i++) {
-      const curr: any = cliConf.apps[i];
-      const isApp: boolean = appTestExpr.test(curr.root);
-      const mainFileRef: string = (curr.main || (isApp ? 'main.ts' : '../index.ts'));
-      const mainFile: string = (curr.root + '/' + mainFileRef);
+      const currApp: any = cliConf.apps[i];
+      const isLib: boolean = (ret.isNxWorkspace && libTestExpr.test(currApp.root));
+      const mainFileRef: string = (currApp.main || (isLib ? '../index.ts' : 'main.ts'));
+      const mainFile: string = (currApp.root + '/' + mainFileRef);
       const isValid: boolean = existsSync(mainFile);
 
-      ret[isApp ? 'apps' : 'libs'].push({
-        id: (curr.name || 'default'),
-        isApp,
-        isLib: !isApp,
+      const currData: AppData = {
+        id: (currApp.name || 'default'),
+        isApp: !isLib,
+        isLib,
         isValid,
-        path: (isValid ? curr.root : null),
+        path: (isValid ? currApp.root : null),
         mainFile: (isValid ? mainFile : null),
-        prefix: (curr.prefix || '')
-      });
+        prefix: (currApp.prefix || '')
+      };
+
+      if (!ret.multipleApps) {
+        ret.app = currData;
+      } else {
+        (ret.apps = ret.apps || []).push(currData);
+      }
     }
   }
+
+  /* Cache */
+  cliDataCache = ret;
 
   return ret;
 }
 
-export function getAppData(id: string, noValidate?: boolean, isLib?: boolean): any|null {
-  const app: any = getCliAppsData()[!!isLib ? 'libs' : 'apps']
+export function getAppData(id: string, isLib?: boolean): AppData|null {
+  const cliData: CliData = getCliData();
+  const apps: AppData[]|any[] = cliData.apps ? cliData.apps : [ cliData.app ];
+
+  const app: AppData = apps
     .filter((val: any) => val.id === id)
+    .filter((val: any) => isLib ? val.isLib : true)
     .shift();
 
-  return (app && (app.isValid || noValidate)) ? app : null;
+  return app || null;
 }
 
-export function getLibData(id: string, noValidate?: boolean): any|null {
-  return getAppData(id, noValidate, true);
+export function getLibData(id: string): AppData|null {
+  return getAppData(id, true);
 }
