@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchemanticsForService",
+  "title": "Service Options Schema",
+  "type": "object",
+  "properties": {
+    "isNxWorkspace": {
+      "type": "boolean",
+      "default": false
+    },
+    "multipleApps": {
+      "type": "boolean",
+      "default": false
+    },
+    "appId": {
+      "type": "string",
+      "default": ""
+    },
+    "appIsLib": {
+      "type": "boolean",
+      "default": false
+    },
+    "appPath": {
+      "type": "string",
+      "default": ""
+    },
+    "appMainFile": {
+      "type": "string",
+      "default": "main.ts"
+    },
+    "appSelectorPrefix": {
+      "type": "string",
+      "default": ""
+    },
+    "skipModuleImport": {
+      "type": "boolean",
+      "default": false
+    },
+
+    "servicesPath": {
+      "type": "string",
+      "default": "services"
+    },
+    "servicesModuleFile": {
+      "type": "string",
+      "default": "index.ts"
+    },
+    "serviceName": {
+      "type": "string",
+      "default": "my-service"
+    },
+    "modelName": {
+      "type": "string",
+      "default": ""
+    },
+    "isHttp": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

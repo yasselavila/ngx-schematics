@@ -18,6 +18,18 @@
       "description": "Generates a logic-component",
       "schema": "./logic-component/logic-component.schema.json",
       "factory": "./logic-component/logic-component.factory"
+    },
+    "service": {
+      "aliases": [ "s" ],
+      "description": "Generates a service",
+      "schema": "./service/service.schema.json",
+      "factory": "./service/service.factory"
+    },
+    "model": {
+      "aliases": [ "m" ],
+      "description": "Generates a model interface",
+      "schema": "./model/model.schema.json",
+      "factory": "./model/model.factory"
     }
   }
 }

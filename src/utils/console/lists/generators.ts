@@ -11,12 +11,16 @@ import { Generator } from '../../generators/generator';
 import { PageGenerator } from '../../generators/page';
 import { ComponentGenerator } from '../../generators/component';
 import { LogicComponentGenerator } from '../../generators/logic-component';
+import { ServiceGenerator } from '../../generators/service';
+import { ModelGenerator } from '../../generators/model';
 
 export function getGeneratorsList(): Choice[]|any[] {
   return [
     { name: 'Page', value: () => new PageGenerator() },
     { name: 'Component', value: () => new ComponentGenerator() },
-    { name: 'Logic-Component', value: () => new LogicComponentGenerator() }
+    { name: 'Logic-Component', value: () => new LogicComponentGenerator() },
+    { name: 'Service', value: () => new ServiceGenerator() },
+    { name: 'Model', value: () => new ModelGenerator() }
   ];
 }
 

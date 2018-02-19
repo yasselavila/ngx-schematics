@@ -1,0 +1,23 @@
+<%= docBlock %>import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { <%= classify(serviceName) %>Service } from './<%= toDashes(serviceName) %>.service';
+
+describe('<%= appTestsNs  %>Service: <%= titleStyle(serviceName) %>', () => {
+  let service: <%= classify(serviceName) %>Service;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        <%= classify(serviceName) %>Service
+      ]
+    });
+  }));
+
+  beforeEach(() => {
+    service = null; // TODO
+  });
+
+  it('should create the service', () => {
+    expect(service).toBeTruthy();
+  });
+});
