@@ -1,0 +1,8 @@
+<%= docBlock %>import { Injectable } from '@angular/core';
+
+@Injectable()
+export class <%= classify(formName) %>Form {
+  public constructor() {
+    // TODO
+  }
+}

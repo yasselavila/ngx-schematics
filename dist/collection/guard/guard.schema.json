@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchemanticsForGuard",
+  "title": "Guard Options Schema",
+  "type": "object",
+  "properties": {
+    "isNxWorkspace": {
+      "type": "boolean",
+      "default": false
+    },
+    "multipleApps": {
+      "type": "boolean",
+      "default": false
+    },
+    "appId": {
+      "type": "string",
+      "default": ""
+    },
+    "appIsLib": {
+      "type": "boolean",
+      "default": false
+    },
+    "appPath": {
+      "type": "string",
+      "default": ""
+    },
+    "appMainFile": {
+      "type": "string",
+      "default": "main.ts"
+    },
+    "appSelectorPrefix": {
+      "type": "string",
+      "default": ""
+    },
+    "skipModuleImport": {
+      "type": "boolean",
+      "default": false
+    },
+
+    "guardsPath": {
+      "type": "string",
+      "default": "guards"
+    },
+    "guardsModuleFile": {
+      "type": "string",
+      "default": ""
+    },
+    "guardName": {
+      "type": "string",
+      "default": "my-guard"
+    }
+  }
+}

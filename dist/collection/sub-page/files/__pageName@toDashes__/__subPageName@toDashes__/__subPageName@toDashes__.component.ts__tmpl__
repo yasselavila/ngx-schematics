@@ -1,0 +1,16 @@
+<%= docBlock %>import { Component, OnInit } from '@angular/core';
+
+@Component({
+  moduleId: module.id,
+  selector: '<%= appSelectorPrefixNs %><%= toDashes(pageName) %>',
+  templateUrl: './<%= toDashes(pageName) %>.component.html',
+  styleUrls: ['./<%= toDashes(pageName) %>.component.scss']
+})
+export class <%= classify(pageName) %>PageComponent implements OnInit {
+  public constructor() {
+  }
+
+  public ngOnInit(): void {
+    // TODO
+  }
+}

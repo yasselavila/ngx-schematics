@@ -59,7 +59,7 @@ export function getCliData(disableCache?: boolean): CliData {
       const isValid: boolean = existsSync(mainFile);
 
       const currData: AppData = {
-        id: (currApp.name || 'default'),
+        id: (currApp.name || i),
         isApp: !isLib,
         isLib,
         isValid,

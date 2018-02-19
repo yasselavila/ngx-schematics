@@ -1,0 +1,35 @@
+{
+  "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "page": {
+      "aliases": [ "p" ],
+      "description": "Generates a page",
+      "schema": "./page/page.schema.json",
+      "factory": "./page/page.factory"
+    },
+    "component": {
+      "aliases": [ "c" ],
+      "description": "Generates a component",
+      "schema": "./component/component.schema.json",
+      "factory": "./component/component.factory"
+    },
+    "logic-component": {
+      "aliases": [ "lc" ],
+      "description": "Generates a logic-component",
+      "schema": "./logic-component/logic-component.schema.json",
+      "factory": "./logic-component/logic-component.factory"
+    },
+    "service": {
+      "aliases": [ "s" ],
+      "description": "Generates a service",
+      "schema": "./service/service.schema.json",
+      "factory": "./service/service.factory"
+    },
+    "model": {
+      "aliases": [ "m" ],
+      "description": "Generates a model interface",
+      "schema": "./model/model.schema.json",
+      "factory": "./model/model.factory"
+    }
+  }
+}

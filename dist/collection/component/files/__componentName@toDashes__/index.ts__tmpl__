@@ -1,0 +1,1 @@
+<%= docBlock %>export { <%= classify(componentName) %>Component } from './<%= toDashes(componentName) %>.component';

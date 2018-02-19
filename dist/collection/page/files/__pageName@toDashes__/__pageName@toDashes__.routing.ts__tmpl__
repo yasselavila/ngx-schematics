@@ -1,0 +1,13 @@
+<%= docBlock %>import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { <%= classify(pageName) %>PageComponent } from './<%= toDashes(pageName) %>.component';
+
+export const <%= constantStyle(pageName) %>_PAGE_ROUTES: Routes = [
+  {
+    path: '<%= toDashes(pageName) %>',
+    component: <%= classify(pageName) %>PageComponent
+  }
+];
+
+export const <%= classify(pageName) %>PageRoutingModule: ModuleWithProviders = RouterModule.forChild(<%= constantStyle(pageName) %>_PAGE_ROUTES);

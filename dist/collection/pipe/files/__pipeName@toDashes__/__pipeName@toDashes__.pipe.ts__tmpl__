@@ -1,0 +1,11 @@
+<%= docBlock %>import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({ name: '<%= toDashes(pageName) %>' })
+export class <%= classify(pageName) %>Pipe implements PipeTransform {
+  public constructor() {
+  }
+
+  public transform(): any {
+    // TODO
+  }
+}

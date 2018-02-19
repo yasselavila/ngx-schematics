@@ -1,0 +1,15 @@
+<%= docBlock %>import { NgModule } from '@angular/core';
+
+import { <%= classify(pageName) %>PageRoutingModule } from './<%= toDashes(pageName) %>.routing';
+import { <%= classify(pageName) %>PageComponent } from './<%= toDashes(pageName) %>.component';
+
+@NgModule({
+  imports: [
+    <%= classify(pageName) %>PageRoutingModule
+  ],
+  declarations: [
+    <%= classify(pageName) %>PageComponent
+  ]
+})
+export class <%= classify(pageName) %>PageModule {
+}

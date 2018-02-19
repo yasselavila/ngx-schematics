@@ -1,0 +1,98 @@
+{
+  "name": "@yag/ngx-schematics",
+  "description": "Custom schematics for Angular apps",
+  "version": "1.0.0-alpha.4",
+  "license": "BSD-3-Clause",
+  "engines": {
+    "node": ">=6.12",
+    "npm": ">=3.10"
+  },
+  "homepage": "https://github.com/yasselavila/ngx-schematics",
+  "author": "Yassel Avila Gil (http://yasselavila.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasselavila/ngx-schematics.git"
+  },
+  "keyworks": [
+    "yag",
+    "angular",
+    "schematics",
+    "ngx-schematics",
+    "custom"
+  ],
+  "schematics": "./collection/collection.json",
+  "bin": {
+    "yag-ng": "./bin/generate.js"
+  },
+  "scripts": {
+    "start": "npm run test:w",
+    "cover": "cross-env NODE_ENV=test nyc --reporter=lcov npm run test:r",
+    "coveralls": "cat ./coverage/lcov.info | \"./node_modules/.bin/coveralls\"",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "pretest": "npm run lint",
+    "test": "npm run cover",
+    "test:r": "cross-env NODE_ENV=test mocha -r ts-node/register src/**/*.spec.ts",
+    "test:w": "cross-env NODE_ENV=test mocha --watch -r ts-node/register src/**/*.spec.ts",
+    "tsc": "tsc --target es5",
+    "tsc:w": "npm run tsc -- -w",
+    "clean": "rimraf dist && mkdir dist",
+    "clean:ts": "rimraf dist/**/*.ts",
+    "pkg:data": "cpx {package.json,package-lock.json,README.md,LICENSE.txt} dist/",
+    "copy:files": "cpx \"src/**/*\" dist/",
+    "copy:files:w": "cpx \"src/**/*\" dist/ --watch",
+    "build:disabled": "run-s clean cover pkg:data copy:files tsc",
+    "build:fast": "run-s copy:files clean:ts tsc",
+    "build": "run-s clean pkg:data copy:files clean:ts tsc"
+  },
+  "dependencies": {
+    "@angular-devkit/core": "^0.3.1",
+    "@angular-devkit/schematics": "^0.3.1",
+    "@angular-devkit/schematics-cli": "^0.3.1",
+    "@schematics/angular": "^0.3.1",
+    "@schematics/schematics": "^0.3.1",
+    "inquirer2": "^0.1.1",
+    "source-map": "^0.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "~9.4.5",
+    "@types/mocha": "^2.2.48",
+    "@types/chai": "^4.1.2",
+    "cpx": "^1.5.0",
+    "rimraf": "^2.6.2",
+    "npm-run-all": "^4.1.2",
+    "cross-env": "^5.1.3",
+    "mocha": "^5.0.0",
+    "chai": "^4.1.2",
+    "nyc": "^11.4.1",
+    "coveralls": "^3.0.0",
+    "ts-node": "^4.1.0",
+    "tslint": "^5.9.1",
+    "tslint-eslint-rules": "^4.1.1",
+    "typescript": "~2.6.2"
+  },
+  "nyc": {
+    "include": [
+      "src/*.ts",
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      ".vscode",
+      "coverage",
+      "dist",
+      "node_modules",
+      "typings",
+      "manual-tests"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "json",
+      "html"
+    ],
+    "all": true
+  }
+}

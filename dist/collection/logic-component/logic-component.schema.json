@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchemanticsForLogicComponent",
+  "title": "Logic-Component Options Schema",
+  "type": "object",
+  "properties": {
+    "isNxWorkspace": {
+      "type": "boolean",
+      "default": false
+    },
+    "multipleApps": {
+      "type": "boolean",
+      "default": false
+    },
+    "appId": {
+      "type": "string",
+      "default": ""
+    },
+    "appIsLib": {
+      "type": "boolean",
+      "default": false
+    },
+    "appPath": {
+      "type": "string",
+      "default": ""
+    },
+    "appMainFile": {
+      "type": "string",
+      "default": "main.ts"
+    },
+    "appSelectorPrefix": {
+      "type": "string",
+      "default": ""
+    },
+    "skipModuleImport": {
+      "type": "boolean",
+      "default": false
+    },
+
+    "logicComponentsPath": {
+      "type": "string",
+      "default": "logic-components"
+    },
+    "logicComponentsModuleFile": {
+      "type": "string",
+      "default": "index.ts"
+    },
+    "logicComponentName": {
+      "type": "string",
+      "default": "my-logic-component"
+    }
+  }
+}

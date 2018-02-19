@@ -1,0 +1,30 @@
+<%= docBlock %>import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { <%= classify(directiveName) %>Directive } from './<%= toDashes(directiveName) %>.component';
+
+describe('<%= appTestsNs  %>Directive: <%= titleStyle(directiveName) %>', () => {
+  let fixture: ComponentFixture<<%= classify(directiveName) %>Directive>;
+  let directive: <%= classify(directiveName) %>Directive;
+  let element: any;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        <%= classify(directiveName) %>Directive
+      ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(<%= classify(directiveName) %>Directive);
+    directive = fixture.componentInstance;
+    element = fixture.nativeElement;
+
+    fixture.detectChanges();
+  });
+
+  it('should create the directive', () => {
+    expect(directive).toBeTruthy();
+  });
+});

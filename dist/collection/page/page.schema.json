@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchemanticsForPage",
+  "title": "Page Options Schema",
+  "type": "object",
+  "properties": {
+    "isNxWorkspace": {
+      "type": "boolean",
+      "default": false
+    },
+    "multipleApps": {
+      "type": "boolean",
+      "default": false
+    },
+    "appId": {
+      "type": "string",
+      "default": ""
+    },
+    "appIsLib": {
+      "type": "boolean",
+      "default": false
+    },
+    "appPath": {
+      "type": "string",
+      "default": ""
+    },
+    "appMainFile": {
+      "type": "string",
+      "default": "main.ts"
+    },
+    "appSelectorPrefix": {
+      "type": "string",
+      "default": ""
+    },
+    "skipModuleImport": {
+      "type": "boolean",
+      "default": false
+    },
+
+    "pagesPath": {
+      "type": "string",
+      "default": "pages"
+    },
+    "pagesModuleFile": {
+      "type": "string",
+      "default": "pages/index.ts"
+    },
+    "noModule": {
+      "type": "boolean",
+      "default": false
+    },
+    "pageName": {
+      "type": "string",
+      "default": "my-page"
+    },
+    "pageTitle": {
+      "type": "string",
+      "default": "My Page"
+    }
+  }
+}

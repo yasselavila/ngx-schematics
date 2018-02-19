@@ -1,0 +1,4 @@
+<%= docBlock %>export { <%= classify(pageName) %>PageModule } from './<%= toDashes(pageName) %>.module';
+export { <%= constantStyle(pageName) %>_PAGE_ROUTES, <%= classify(pageName) %>PageRoutingModule } from './<%= toDashes(pageName) %>.routing';
+
+export { <%= classify(pageName) %>PageComponent } from './<%= toDashes(pageName) %>.component';
