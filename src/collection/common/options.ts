@@ -8,7 +8,9 @@
 
 import { existsSync, readFileSync } from 'fs';
 
-export function addDocBlock(options: any): any {
+import strings from './strings';
+
+function addDocBlock(options: any): any {
   if (options.appMainFile && existsSync(options.appMainFile)) {
     const mainFileContent = readFileSync(options.appMainFile).toString();
 
@@ -22,6 +24,20 @@ export function addDocBlock(options: any): any {
   return options;
 }
 
+function addDescriptors(options: any): any {
+  const appTypeDesc: string = options.appIsLib ? 'Lib' : 'App';
+  const appIdDesc: string = strings.capitalize(options.appId);
+
+  options.appTestsNs = (options.isNxWorkspace || options.multipleApps)
+    ? `[${appTypeDesc}: ${appIdDesc}] `
+    : '';
+
+  return options;
+}
+
 export function fixOptions(options: any): any {
   addDocBlock(options);
+  addDescriptors(options);
+
+  return options;
 }
