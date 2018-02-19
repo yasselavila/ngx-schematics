@@ -2,7 +2,7 @@
 
 @Component({
   moduleId: module.id,
-  selector: '<%= appSelectorPrefix ? (appSelectorPrefix + '-') : '' %><%= toDashes(pageName) %>',
+  selector: '<%= appSelectorPrefixNs %><%= toDashes(pageName) %>',
   templateUrl: './<%= toDashes(pageName) %>.component.html',
   styleUrls: ['./<%= toDashes(pageName) %>.component.scss']
 })

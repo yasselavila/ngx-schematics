@@ -28,9 +28,13 @@ function addDescriptors(options: any): any {
   const appTypeDesc: string = options.appIsLib ? 'Lib' : 'App';
   const appIdDesc: string = strings.capitalize(options.appId);
 
+  /* Spec desc */
   options.appTestsNs = (options.isNxWorkspace || options.multipleApps)
     ? `[${appTypeDesc}: ${appIdDesc}] `
     : '';
+
+  /* Selector prefix */
+  options.appSelectorPrefixNs = options.appSelectorPrefix ? `${options.appSelectorPrefix}-` : '';
 
   return options;
 }
