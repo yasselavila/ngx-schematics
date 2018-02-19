@@ -10,11 +10,13 @@ import { Choice, select } from '../prompts';
 import { Generator } from '../../generators/generator';
 import { PageGenerator } from '../../generators/page';
 import { ComponentGenerator } from '../../generators/component';
+import { LogicComponentGenerator } from '../../generators/logic-component';
 
 export function getGeneratorsList(): Choice[]|any[] {
   return [
     { name: 'Page', value: () => new PageGenerator() },
-    { name: 'Component', value: () => new ComponentGenerator() }
+    { name: 'Component', value: () => new ComponentGenerator() },
+    { name: 'Logic-Component', value: () => new LogicComponentGenerator() }
   ];
 }
 

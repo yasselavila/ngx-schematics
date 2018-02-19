@@ -1,0 +1,30 @@
+<%= docBlock %>import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { <%= classify(logicComponentName) %>Component } from './<%= toDashes(logicComponentName) %>.component';
+
+describe('<%= appTestsNs  %>Logic-Component: <%= titleStyle(logicComponentName) %>', () => {
+  let fixture: ComponentFixture<<%= classify(logicComponentName) %>Component>;
+  let cmp: <%= classify(logicComponentName) %>Component;
+  let element: any;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        <%= classify(logicComponentName) %>Component
+      ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(<%= classify(logicComponentName) %>Component);
+    cmp = fixture.componentInstance;
+    element = fixture.nativeElement;
+
+    fixture.detectChanges();
+  });
+
+  it('should create the logic-component', () => {
+    expect(cmp).toBeTruthy();
+  });
+});

@@ -11,23 +11,23 @@ import { existsSync } from 'fs';
 import { AppData } from '../ng-cli/data';
 import { BaseGenerator, PromptsData } from './generator';
 
-export class ComponentGenerator extends BaseGenerator {
-  public name: string = 'component';
+export class LogicComponentGenerator extends BaseGenerator {
+  public name: string = 'logic-component';
   protected options: PromptsData[];
 
   public async getOptions(appData: AppData, consoleArgs: any): Promise<string[]|null> {
     const cmpPath: string = (appData.isApp && existsSync(`${appData.path}/shared`))
-      ? 'shared/components'
-      : 'components';
+      ? 'shared/logic-components'
+      : 'logic-components';
 
     this.options = [
-      { name: 'componentsPath', prompt: 'Enter relative path for components', default: cmpPath },
+      { name: 'logicComponentsPath', prompt: 'Enter relative path for logic-components', default: cmpPath },
       {
-        name: 'componentsModuleFile',
-        prompt: 'Enter the file where define and export your component',
+        name: 'logicComponentsModuleFile',
+        prompt: 'Enter the file where define and export your logic-component',
         default: `${cmpPath}/index.ts`
       },
-      { name: 'componentName', prompt: 'Enter the name of your component', default: 'my-component' }
+      { name: 'logicComponentName', prompt: 'Enter the name of your logic-component', default: 'my-logic-component' }
     ];
 
     return await super.getOptions(appData, consoleArgs);
