@@ -13,6 +13,6 @@ export class PageGenerator extends BaseGenerator {
 
   protected options: PromptsData[] = [
     { name: 'pageName', prompt: 'Enter the name of your page', default: 'my-page' },
-    { name: 'pageTitle', prompt: 'Enter the title of your page', optional: true }
+    { name: 'pageTitle', prompt: 'Enter the title of your page [Name will be used if empty]', optional: true }
   ];
 }

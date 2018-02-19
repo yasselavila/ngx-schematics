@@ -59,7 +59,7 @@ export function select(message: string, choices: Choice[]): Promise<Choice> {
   );
 }
 
-export function confirm(message: string, defaultValue: 'Y'|'n' = 'n'): Promise<Choice> {
+export function confirm(message: string, defaultValue: 'y'|'n' = 'n'): Promise<Choice> {
   return new Promise<Choice>(
     (resolve: (value: any) => void, reject: (error: any) => void) => {
       message += ':';
@@ -68,7 +68,7 @@ export function confirm(message: string, defaultValue: 'Y'|'n' = 'n'): Promise<C
         {
           type: 'confirm',
           name: 'value',
-          default: ('Y' === defaultValue),
+          default: ('y' === defaultValue),
           message
         },
         (choice?: Choice) => {

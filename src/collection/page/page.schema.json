@@ -4,6 +4,14 @@
   "title": "Page Options Schema",
   "type": "object",
   "properties": {
+    "isNxWorkspace": {
+      "type": "boolean",
+      "default": false
+    },
+    "multipleApps": {
+      "type": "boolean",
+      "default": false
+    },
     "appId": {
       "type": "string",
       "default": ""
@@ -16,17 +24,13 @@
       "type": "string",
       "default": ""
     },
-    "appSrcPath": {
-      "type": "string",
-      "default": ""
-    },
     "appMainFile": {
       "type": "string",
       "default": "main.ts"
     },
     "appSelectorPrefix": {
       "type": "string",
-      "default": "app"
+      "default": ""
     },
     "skipModuleImport": {
       "type": "boolean",

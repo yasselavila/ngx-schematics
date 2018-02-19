@@ -10,16 +10,16 @@ import { exit } from 'process';
 
 import { Choice, prompt, confirm } from '../console/prompts';
 
-export interface Generator {
-  getName: () => string;
-  getOptions: (noConfirm?: boolean, debug?: boolean) => Promise<string[]|null>;
-}
-
 export interface PromptsData {
   name: string;
   prompt: string;
   default?: any;
   optional?: boolean;
+}
+
+export interface Generator {
+  getName: () => string;
+  getOptions: (noConfirm?: boolean, debug?: boolean) => Promise<string[]|null>;
 }
 
 export class BaseGenerator implements Generator {
@@ -32,7 +32,6 @@ export class BaseGenerator implements Generator {
     optionChoice: Choice,
     noWrap?: boolean
   ): void {
-    // TODO: "" // const value: string = noWrap ? optionChoice.value : `"${optionChoice.value}"`;
     options.push(`--${optionName}=${optionChoice.value}`);
   }
 

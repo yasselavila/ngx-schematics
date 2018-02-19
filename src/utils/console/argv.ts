@@ -11,7 +11,7 @@ import { argv } from 'process';
 const argExpr: RegExp = /^\-\-([a-z][a-z0-9]*)(=(.*))?$/i;
 let argsCache: any;
 
-export function getArgs(disableCache?: boolean): any {
+export function getConsoleArgs(disableCache?: boolean): any {
   if (!disableCache && argsCache) {
     return argsCache;
   }

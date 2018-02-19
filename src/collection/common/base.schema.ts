@@ -8,24 +8,29 @@
 
 export interface BaseSchema {
   /**
+   * Are we in a Nx workspace?
+   */
+  isNxWorkspace?: boolean;
+
+  /**
+   * Are we in a Nx workspace?
+   */
+  multipleApps?: boolean;
+
+  /**
    * App ID
    */
   appId: string;
 
   /**
-   * Is the app a library?
+   * Is the selected app a library?
    */
   appIsLib?: boolean;
 
   /**
-   * The path of the App
+   * The path of the App (source directory)
    */
   appPath: string;
-
-  /**
-   * The src dir of the App
-   */
-  appSrcPath: string;
 
   /**
    * The main file of the App
