@@ -43,7 +43,7 @@
     },
     "pagesModuleFile": {
       "type": "string",
-      "default": ""
+      "default": "pages/index.ts"
     },
     "noModule": {
       "type": "boolean",

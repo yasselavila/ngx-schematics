@@ -20,7 +20,7 @@ export default function(options: PageOptions): Rule {
       url('./files'),
       [
         template(options),
-        move(options.appPath)
+        move(`${options.appPath}/${options.pagesPath}`)
       ]
     );
 
