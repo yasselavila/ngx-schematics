@@ -30,6 +30,7 @@
   "filesGlob": [
     "src/**/*.ts",
     "!**/*.spec.ts",
+    "!dist/**/*",
     "!node_modules/**/*"
   ],
   "exclude": [
