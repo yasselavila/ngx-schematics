@@ -8,6 +8,7 @@
 
 import { exit } from 'process';
 
+import { AppData } from '../ng-cli/data';
 import { Choice, prompt, confirm } from '../console/prompts';
 
 export interface PromptsData {
@@ -19,7 +20,7 @@ export interface PromptsData {
 
 export interface Generator {
   getName: () => string;
-  getOptions: (consoleArgs: any) => Promise<string[]|null>;
+  getOptions: (appData: AppData, consoleArgs: any) => Promise<string[]|null>;
 }
 
 export class BaseGenerator implements Generator {
@@ -35,7 +36,7 @@ export class BaseGenerator implements Generator {
     options.push(`--${optionName}=${optionChoice.value}`);
   }
 
-  public async getOptions(consoleArgs: any): Promise<string[]|null> {
+  public async getOptions(appData: AppData, consoleArgs: any): Promise<string[]|null> {
     const ret: string[] = [];
 
     for (const option of this.options) {

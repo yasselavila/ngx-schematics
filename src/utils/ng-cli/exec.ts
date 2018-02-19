@@ -80,7 +80,7 @@ function ngCli(
 
 export async function execNgCli(appData: AppData, generator: Generator): Promise<number> {
   const consoleArgs: any = getConsoleArgs();
-  const generatorOptions: string[]|null = await generator.getOptions(consoleArgs);
+  const generatorOptions: string[]|null = await generator.getOptions(appData, consoleArgs);
 
   if (!generatorOptions) {
     console.log('BYE!');
