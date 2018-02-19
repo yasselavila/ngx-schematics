@@ -6,12 +6,13 @@
  * @link      https://github.com/yasselavila/ngx-schematics
  */
 
+import { expect } from 'chai';
 import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
 
 import PageFactory from './page.factory';
 
 describe('Page Schematic', () => {
   it('should define the factory', () => {
-    // TODO: expect(PageFactory).toBeTruthy();
+    expect(PageFactory).to.be.an('function');
   });
 });
