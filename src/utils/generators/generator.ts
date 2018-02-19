@@ -19,7 +19,7 @@ export interface PromptsData {
 
 export interface Generator {
   getName: () => string;
-  getOptions: (noConfirm?: boolean, debug?: boolean) => Promise<string[]|null>;
+  getOptions: (consoleArgs: any) => Promise<string[]|null>;
 }
 
 export class BaseGenerator implements Generator {
@@ -35,7 +35,7 @@ export class BaseGenerator implements Generator {
     options.push(`--${optionName}=${optionChoice.value}`);
   }
 
-  public async getOptions(noConfirm?: boolean, debug?: boolean): Promise<string[]|null> {
+  public async getOptions(consoleArgs: any): Promise<string[]|null> {
     const ret: string[] = [];
 
     for (const option of this.options) {
@@ -50,7 +50,7 @@ export class BaseGenerator implements Generator {
       this.pushOption(ret, option.name, optionData);
     }
 
-    if (!noConfirm) {
+    if (!consoleArgs.noConfirm) {
       const isSure: Choice = await confirm('Are you sure?');
 
       if (!isSure.value) {
