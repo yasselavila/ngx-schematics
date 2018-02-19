@@ -13,7 +13,6 @@ export function addDocBlock(options: any): any {
     const mainFileContent = readFileSync(options.appMainFile).toString();
 
     if ('/**' === mainFileContent.substring(0, 3)) {
-      /* tslint:disable-next-line */
       options.docBlock = mainFileContent.substring(0, (mainFileContent.indexOf('*/') + 2)) + `\n\n`;
     }
   }
