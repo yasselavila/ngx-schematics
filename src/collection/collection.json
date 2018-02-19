@@ -6,6 +6,12 @@
       "description": "Generates a page",
       "schema": "./page/page.schema.json",
       "factory": "./page/page.factory"
+    },
+    "component": {
+      "aliases": [ "c" ],
+      "description": "Generates a component",
+      "schema": "./component/component.schema.json",
+      "factory": "./component/component.factory"
     }
   }
 }
