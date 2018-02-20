@@ -7,6 +7,12 @@
       "schema": "./page/page.schema.json",
       "factory": "./page/page.factory"
     },
+    "sub-page": {
+      "aliases": [ "sp" ],
+      "description": "Generates a sub-page",
+      "schema": "./sub-page/sub-page.schema.json",
+      "factory": "./sub-page/sub-page.factory"
+    },
     "component": {
       "aliases": [ "c" ],
       "description": "Generates a component",
@@ -19,6 +25,22 @@
       "schema": "./logic-component/logic-component.schema.json",
       "factory": "./logic-component/logic-component.factory"
     },
+    "directive": {
+      "aliases": [ "d" ],
+      "description": "Generates a directive",
+      "schema": "./directive/directive.schema.json",
+      "factory": "./directive/directive.factory"
+    },
+    "pipe": {
+      "description": "Generates a pipe",
+      "schema": "./pipe/pipe.schema.json",
+      "factory": "./pipe/pipe.factory"
+    },
+    "guard": {
+      "description": "Generates a route guard",
+      "schema": "./guard/guard.schema.json",
+      "factory": "./guard/guard.factory"
+    },
     "service": {
       "aliases": [ "s" ],
       "description": "Generates a service",
@@ -26,7 +48,6 @@
       "factory": "./service/service.factory"
     },
     "model": {
-      "aliases": [ "m" ],
       "description": "Generates a model interface",
       "schema": "./model/model.schema.json",
       "factory": "./model/model.factory"

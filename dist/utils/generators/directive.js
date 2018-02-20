@@ -1,4 +1,14 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -35,39 +45,39 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var prompts_1 = require("../prompts");
-var page_1 = require("../../generators/page");
-var component_1 = require("../../generators/component");
-var logic_component_1 = require("../../generators/logic-component");
-var directive_1 = require("../../generators/directive");
-var pipe_1 = require("../../generators/pipe");
-var guard_1 = require("../../generators/guard");
-var service_1 = require("../../generators/service");
-var model_1 = require("../../generators/model");
-function getGeneratorsList() {
-    return [
-        { name: 'Page', value: function () { return new page_1.PageGenerator(); } },
-        { name: 'Component', value: function () { return new component_1.ComponentGenerator(); } },
-        { name: 'Logic-Component', value: function () { return new logic_component_1.LogicComponentGenerator(); } },
-        { name: 'Directive', value: function () { return new directive_1.DirectiveGenerator(); } },
-        { name: 'Pipe', value: function () { return new pipe_1.PipeGenerator(); } },
-        { name: 'Guard', value: function () { return new guard_1.GuardGenerator(); } },
-        { name: 'Service', value: function () { return new service_1.ServiceGenerator(); } },
-        { name: 'Model', value: function () { return new model_1.ModelGenerator(); } }
-    ];
-}
-exports.getGeneratorsList = getGeneratorsList;
-function selectGenerator() {
-    return __awaiter(this, void 0, void 0, function () {
-        var selectedGenerator;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4, prompts_1.select('What do you need to create?', getGeneratorsList())];
-                case 1:
-                    selectedGenerator = _a.sent();
-                    return [2, selectedGenerator.value.call()];
-            }
+var fs_1 = require("fs");
+var generator_1 = require("./generator");
+var DirectiveGenerator = (function (_super) {
+    __extends(DirectiveGenerator, _super);
+    function DirectiveGenerator() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.name = 'directive';
+        return _this;
+    }
+    DirectiveGenerator.prototype.getOptions = function (appData, consoleArgs) {
+        return __awaiter(this, void 0, void 0, function () {
+            var directivesPath;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        directivesPath = (appData.isApp && fs_1.existsSync(appData.path + "/shared"))
+                            ? 'shared/directives'
+                            : 'directives';
+                        this.options = [
+                            { name: 'directivesPath', prompt: 'Enter relative path for directives', default: directivesPath },
+                            {
+                                name: 'directivesModuleFile',
+                                prompt: 'Enter the file where define and export your directive',
+                                default: directivesPath + "/index.ts"
+                            },
+                            { name: 'directiveName', prompt: 'Enter the name of your directive', default: 'my-directive' }
+                        ];
+                        return [4, _super.prototype.getOptions.call(this, appData, consoleArgs)];
+                    case 1: return [2, _a.sent()];
+                }
+            });
         });
-    });
-}
-exports.selectGenerator = selectGenerator;
+    };
+    return DirectiveGenerator;
+}(generator_1.BaseGenerator));
+exports.DirectiveGenerator = DirectiveGenerator;

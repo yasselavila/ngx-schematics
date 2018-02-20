@@ -1,8 +1,9 @@
 {
   "name": "@yag/ngx-schematics",
   "description": "Custom schematics for Angular apps",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "license": "BSD-3-Clause",
+  "private": true,
   "engines": {
     "node": ">=6.12",
     "npm": ">=3.10"
@@ -18,7 +19,8 @@
     "angular",
     "schematics",
     "ngx-schematics",
-    "custom"
+    "custom",
+    "wizard"
   ],
   "schematics": "./collection/collection.json",
   "bin": {
@@ -45,11 +47,11 @@
     "build": "run-s clean pkg:data copy:files clean:ts tsc"
   },
   "dependencies": {
-    "@angular-devkit/core": "^0.3.1",
-    "@angular-devkit/schematics": "^0.3.1",
-    "@angular-devkit/schematics-cli": "^0.3.1",
-    "@schematics/angular": "^0.3.1",
-    "@schematics/schematics": "^0.3.1",
+    "@angular-devkit/core": "^0.4.0",
+    "@angular-devkit/schematics": "^0.4.0",
+    "@angular-devkit/schematics-cli": "^0.4.0",
+    "@schematics/angular": "^0.4.0",
+    "@schematics/schematics": "^0.4.0",
     "inquirer2": "^0.1.1",
     "source-map": "^0.7.1"
   },
@@ -67,8 +69,8 @@
     "coveralls": "^3.0.0",
     "ts-node": "^4.1.0",
     "tslint": "^5.9.1",
-    "tslint-eslint-rules": "^4.1.1",
-    "typescript": "~2.6.2"
+    "tslint-eslint-rules": "^5.0.0",
+    "typescript": "~2.7.2"
   },
   "nyc": {
     "include": [

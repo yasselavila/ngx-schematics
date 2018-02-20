@@ -1,0 +1,30 @@
+<%= docBlock %>import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { <%= classify(pipeName) %>Pipe } from './<%= toDashes(pipeName) %>.pipe';
+
+describe('[<%= capitalize(appId) %> App] pipe: <%= titleStyle(pipeName) %>', () => {
+  let fixture: ComponentFixture<<%= classify(pipeName) %>Pipe>;
+  let cmp: <%= classify(pipeName) %>Pipe;
+  let element: any;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        <%= classify(pipeName) %>Pipe
+      ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(<%= classify(pipeName) %>Pipe);
+    cmp = fixture.componentInstance;
+    element = fixture.nativeElement;
+
+    fixture.detectChanges();
+  });
+
+  it('should create the component', () => {
+    expect(cmp).toBeTruthy();
+  });
+});

@@ -1,0 +1,3 @@
+<%= docBlock %>export interface <%= classify(modelName) %> {
+  // TODO
+}

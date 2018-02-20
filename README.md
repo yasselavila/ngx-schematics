@@ -13,9 +13,9 @@ Copyright (c) 2018, [Yassel Avila Gil](http://yasselavila.com).
 
 ### What is this?
 
-Custom [schematics](https://blog.angular.io/schematics-an-introduction-dc1dfbc2a2b2) for [Angular](https://angular.io/) apps.
+Custom [schematics](https://blog.angular.io/schematics-an-introduction-dc1dfbc2a2b2) for [Angular](https://angular.io/) apps. Supports applications based on [Nrwl/Nx](https://nrwl.io/nx) and [Angular CLI](https://github.com/angular/angular-cli).
 
-> WARNING!: **[WIP]** This project is under heavy development!!!
+> WARNING! **[WIP]** This project is under heavy development!!!
 
 ### License
 
@@ -33,4 +33,22 @@ npm install -g @angular/cli @yag/ngx-schematics
 
 ### Usage
 
-Run `yag-ng` in a command line interface ;-).
+Open a command line interface on the root of your Angular project, and run:
+
+```bash
+yag-ng
+```
+
+#### Options
+
+To enable debugging:
+
+```bash
+yag-ng --debug
+```
+
+To avoid confirmation requests:
+
+```bash
+yag-ng --noConfirm
+```

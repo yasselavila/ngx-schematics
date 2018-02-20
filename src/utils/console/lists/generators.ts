@@ -11,6 +11,9 @@ import { Generator } from '../../generators/generator';
 import { PageGenerator } from '../../generators/page';
 import { ComponentGenerator } from '../../generators/component';
 import { LogicComponentGenerator } from '../../generators/logic-component';
+import { DirectiveGenerator } from '../../generators/directive';
+import { PipeGenerator } from '../../generators/pipe';
+import { GuardGenerator } from '../../generators/guard';
 import { ServiceGenerator } from '../../generators/service';
 import { ModelGenerator } from '../../generators/model';
 
@@ -19,6 +22,9 @@ export function getGeneratorsList(): Choice[]|any[] {
     { name: 'Page', value: () => new PageGenerator() },
     { name: 'Component', value: () => new ComponentGenerator() },
     { name: 'Logic-Component', value: () => new LogicComponentGenerator() },
+    { name: 'Directive', value: () => new DirectiveGenerator() },
+    { name: 'Pipe', value: () => new PipeGenerator() },
+    { name: 'Guard', value: () => new GuardGenerator() },
     { name: 'Service', value: () => new ServiceGenerator() },
     { name: 'Model', value: () => new ModelGenerator() }
   ];

@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchemanticsForSubPage",
+  "title": "Sub-Page Options Schema",
+  "type": "object",
+  "properties": {
+    "isNxWorkspace": {
+      "type": "boolean",
+      "default": false
+    },
+    "multipleApps": {
+      "type": "boolean",
+      "default": false
+    },
+    "appId": {
+      "type": "string",
+      "default": ""
+    },
+    "appIsLib": {
+      "type": "boolean",
+      "default": false
+    },
+    "appPath": {
+      "type": "string",
+      "default": ""
+    },
+    "appMainFile": {
+      "type": "string",
+      "default": "main.ts"
+    },
+    "appSelectorPrefix": {
+      "type": "string",
+      "default": ""
+    },
+    "skipModuleImport": {
+      "type": "boolean",
+      "default": false
+    },
+
+    "parentPagePath": {
+      "type": "string",
+      "default": ""
+    },
+    "parentPageModuleFile": {
+      "type": "string",
+      "default": ""
+    },
+    "pageName": {
+      "type": "string",
+      "default": "my-sub-page"
+    },
+    "pageTitle": {
+      "type": "string",
+      "default": "My Sub-Page"
+    }
+  }
+}

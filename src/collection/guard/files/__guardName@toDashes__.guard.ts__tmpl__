@@ -1,0 +1,12 @@
+<%= docBlock %>import { Injectable } from '@angular/core';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+
+@Injectable()
+export class <%= classify(guardName) %>Guard implements CanActivate {
+  public constructor(private router: Router) {
+  }
+
+  public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    return false;
+  }
+}
