@@ -3,7 +3,6 @@
   "description": "Custom schematics for Angular apps",
   "version": "1.0.0-alpha.5",
   "license": "BSD-3-Clause",
-  "private": true,
   "engines": {
     "node": ">=6.12",
     "npm": ">=3.10"
