@@ -17,6 +17,8 @@ Custom [schematics](https://blog.angular.io/schematics-an-introduction-dc1dfbc2a
 
 > WARNING! **[WIP]** This project is under heavy development!!!
 
+![Console Screenshots](https://github.com/yasselavila/ngx-schematics/blob/develop/doc/img/console-screenshots.png?raw=true)
+
 ### License
 
 New BSD License. See [LICENSE.txt](./LICENSE.txt).
