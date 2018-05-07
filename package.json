@@ -47,9 +47,9 @@
     "build": "run-s clean pkg:data copy:files clean:ts tsc"
   },
   "dependencies": {
-    "@angular-devkit/core": "^0.4.0",
+    "@angular-devkit/core": "^0.5.11",
     "@angular-devkit/schematics": "^0.4.0",
-    "@angular-devkit/schematics-cli": "^0.4.0",
+    "@angular-devkit/schematics-cli": "^0.5.11",
     "@schematics/angular": "^0.4.0",
     "@schematics/schematics": "^0.4.0",
     "inquirer2": "^0.1.1",
