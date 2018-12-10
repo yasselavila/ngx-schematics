@@ -44,7 +44,9 @@
     "copy:files:w": "cpx \"src/**/*\" dist/ --watch",
     "build:disabled": "run-s clean cover pkg:data copy:files tsc",
     "build:fast": "run-s copy:files clean:ts tsc",
-    "build": "run-s clean pkg:data copy:files clean:ts tsc"
+    "build": "run-s clean pkg:data copy:files clean:ts tsc",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "@angular-devkit/core": "^0.4.0",
@@ -53,7 +55,8 @@
     "@schematics/angular": "^0.4.0",
     "@schematics/schematics": "^0.4.0",
     "inquirer2": "^0.1.1",
-    "source-map": "^0.7.1"
+    "source-map": "^0.7.1",
+    "snyk": "^1.116.2"
   },
   "devDependencies": {
     "@types/node": "~9.4.5",
@@ -96,5 +99,6 @@
       "html"
     ],
     "all": true
-  }
+  },
+  "snyk": true
 }
